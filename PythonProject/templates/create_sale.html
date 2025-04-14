@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Создание продажи</title>
+</head>
+<body>
+<h2>Создать новую продажу</h2>
+<form action="/create-sale" method="post">
+    <label>Автомобиль:</label>
+    <select name="car_id">
+        {% for car in cars %}
+            <option value="{{ car.id }}">{{ car.brand }} {{ car.model }}</option>
+        {% endfor %}
+    </select><br>
+
+    <label>Клиент:</label>
+    <select name="client_id">
+        {% for client in clients %}
+            <option value="{{ client.id }}">{{ client.full_name }}</option>
+        {% endfor %}
+    </select><br>
+
+    <label>Дата продажи (ГГГГ-ММ-ДД):</label>
+    <input type="text" name="sale_date"><br><br>
+
+    <button type="submit">Создать</button>
+</form>
+</body>
+</html>
